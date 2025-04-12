@@ -17,3 +17,4 @@ sse-starlette>=2.1.3
 bitsandbytes>=0.44.1 # INT4 Loading, Not support for NPU
 vllm>=0.8.3 # using with VLLM Framework
 peft>=0.15.0 # Using with finetune model
+swanlab>=0.5.5
