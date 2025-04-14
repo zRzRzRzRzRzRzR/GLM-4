@@ -124,7 +124,16 @@ python glm4v_api_request.py
 python trans_stress_test.py
 ```
 
-## 使用昇腾NPU运行代码
+压力测试脚本支持开启**SwanLab**来跟踪压力测试过程和记录指标：
+
+```shell
+# API Key 可通过登录https://swanlab.cn/获取
+python trans_stress_test.py --swanlab_api_key "SwanLab的API Key"
+
+```
+使用`--swanlab_api_key local`参数可开启SwanLab本地模式
+
+## 使用昇腾卡运行代码
 
 用户可以在昇腾硬件环境下运行以上代码，只需将transformers修改为openmind，将device中的cuda设备修改为npu：
 
