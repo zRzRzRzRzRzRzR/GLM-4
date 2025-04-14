@@ -1,6 +1,6 @@
-# Basic Demo
+# Inference
 
-In this demo, you will experience how to use the GLM-4-9B open source model to perform basic tasks.
+[中文阅读](README_zh.md)
 
 Please follow the steps in the document strictly to avoid unnecessary errors.
 
@@ -21,6 +21,7 @@ Test Hardware:
 + OS: Ubuntu 22.04
 + Memory: 512GB
 + Python: 3.12.3
++ Cmake 3.23.0
 + CUDA Version: 12.4
 + GPU Driver: 535.104.05
 + GPU: NVIDIA H100 80GB HBM3 * 8
@@ -63,28 +64,28 @@ The following stress test results show memory usage and latency during inference
 | INT4      | 1     | 10 GB         | 0.1s                 | 28.7 tokens/s       | 1000          |
 | INT4      | 1     | 15 GB         | 0.8s                 | 24.2 tokens/s       | 8000          |
 
-## Basic function calls
+## Quick Start
 
 ### Use transformers backend code
 
 + Use the command line to communicate with the GLM-4-9B model.
 
 ```shell
-python trans_cli_demo.py # GLM-4-9B-Chat
+python trans_cli_demo.py # LLM Such as GLM-4-9B-Chat-0414
 python trans_cli_vision_demo.py # GLM-4V-9B
 ```
 
 + Use the Gradio web client to communicate with the  GLM-4-9B model.
 
 ```shell
-python trans_web_demo.py  # GLM-4-9B-Chat
+python trans_web_demo.py  # LLM Such as GLM-4-9B-Chat-0414
 python trans_web_vision_demo.py # GLM-4V-9B
 ```
 
 + Use Batch inference.
 
 ```shell
-python trans_batch_demo.py
+python trans_batch_demo.py  # LLM Such as GLM-4-9B-Chat-0414
 ```
 
 ### Use vLLM backend code
@@ -92,30 +93,27 @@ python trans_batch_demo.py
 + Use the command line to communicate with the GLM-4-9B-Chat model.
 
 ```shell
-python vllm_cli_demo.py
+python vllm_cli_demo.py  # LLM Such as GLM-4-9B-Chat-0414
 ```
 
-+ use LoRA adapters with vLLM on GLM-4-9B-Chat model.
++ Launch an OpenAI-compatible API service.
 
-```python
-# vllm_cli_demo.py
-# add LORA_PATH = ''
+```shell
+vllm serve THUDM/GLM-4-9B-Chat-0414 --tensor_parallel_size 2
 ```
 
-+ Build the server by yourself and use the request format of `OpenAI API` to communicate with the glm-4-9b model. This
-  demo supports Function Call and All Tools functions.
-+ Modify the `MODEL_PATH` in `open_api_server.py`, and you can choose to build the GLM-4-9B-Chat or GLM-4v-9B server side.
+### Use glm-4v to build an OpenAI-compatible service
 
 Start the server:
 
 ```shell
-python openai_api_server.py
+python glm4v_server.py THUDM/glm-4v-9b
 ```
 
 Client request:
 
 ```shell
-python openai_api_request.py
+python glm4v_api_request.py
 ```
 
 ## Stress test
