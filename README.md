@@ -40,7 +40,7 @@
       <video src="https://github.com/user-attachments/assets/ff87767e-66ac-4fcb-935a-eda783d12210"
              style="width: 400px; height: 300px;" autoplay loop muted playsinline></video>
       <div style="margin-top: 10px; font-size: 14px; color: #333; width: 400px;">
-         Create a first person filght simulator with threejs in HTML
+         Create a first person flight simulator with threejs in HTML
       </div>
     </td>
   </tr>
